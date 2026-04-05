@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mulima</title>
+</head>
+<body>
+
+<div class="outerbox">
+    <div class="innerbox"></div>
+    <button onclick="prevSong()">⏮️</button>
+    <button onclick="play()">▶️</button>
+    <button onclick="nextsong()">⏭️</button>
+    <audio src="/music_for_videos-baby-shark-122769.mp3">babyshark</audio>
+    <audio src="/moodmode-old-macdonald-179322.mp3">oldmacdonald</audio>
+    <audio src="/white_records-twinkle-twinkle-little-star-background-childrenx27s-music-30-sec-178225.mp3">twinkle twinkle little star</audio>
+</div>
+
+</body>
+<style>
+.innerbox {
+    background-color: blueviolet;
+    height: 160px;
+    width: 200px;
+margin:20%;
+    
+
+}
+.outerbox{
+    width:350px;
+    height: 400px;
+    background-color: rgb(215, 139, 25);
+}
+
+</style>
+<script>
+
+
+    const songs = document.getElementsByTagName("audio")
+    let current = 0
+
+    function plgay(){
+        if(songs[current].paused){
+            songs[current].play()
+        } else{
+            songs[current].pause()
+        }
+        
+    }
+    function nextsong(){
+        songs[current].pause()
+            songs[current].currentTime=0
+            current=(current + 1) % songs.length
+            songs[current].play()
+        } 
+    
+    function prevSong(){
+        songs[current].pause()
+        songs[current].currentTime = 0
+        current=(current-1 + songs.length)%songs.length
+        songs[current].play()
+    }
+
+
+</script>
+</html>
